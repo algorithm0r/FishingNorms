@@ -87,7 +87,7 @@ class GameEngine {
         this.graphs.push(graph);
     }
     draw() {
-        if (this.automata.generation % PARAMETERS.reportingPeriod === 0) {
+        if (this.automata.currentTick % PARAMETERS.reportingPeriod === 0) {
             this.ctx.clearRect(this.ctx.canvas.height, 0, this.ctx.canvas.height, this.ctx.canvas.height); // clear graphs only
             for (var i = 0; i < this.graphs.length; i++) {
                 this.graphs[i].draw(this.ctx);

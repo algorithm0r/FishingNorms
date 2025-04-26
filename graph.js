@@ -6,8 +6,8 @@ class Graph {
         this.label = label;
         this.resize = resize;
 
-        this.xSize = PARAMS.graphWidth;
-        this.ySize = PARAMS.graphHeight;
+        this.xSize = PARAMETERS.graphWidth;
+        this.ySize = PARAMETERS.graphHeight;
         this.ctx = gameEngine.ctx;
         this.colors = ["#00BB00", "#BB0000", "#00BBBB", "#CCCCCC"];
         this.minVal = min;
@@ -67,9 +67,9 @@ class Graph {
         firstTick = this.data[0].length > this.xSize ? this.data[0].length - this.xSize : 0;
         this.ctx.fillStyle = "#000000";
         this.ctx.textAlign = "left";
-        this.ctx.fillText(firstTick * PARAMS.reportingPeriod, this.x + 5, this.y + this.ySize + 10);
+        this.ctx.fillText(firstTick * PARAMETERS.reportingPeriod, this.x + 5, this.y + this.ySize + 10);
         this.ctx.textAlign = "right";
-        this.ctx.fillText((this.data[0].length - 1)* PARAMS.reportingPeriod, this.x + this.xSize - 5, this.y + this.ySize + 10);
+        this.ctx.fillText((this.data[0].length - 1)* PARAMETERS.reportingPeriod, this.x + this.xSize - 5, this.y + this.ySize + 10);
         this.ctx.textAlign = "center";
         this.ctx.fillText(this.label, this.x + this.xSize / 2, this.y + this.ySize + 10);
 
