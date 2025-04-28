@@ -37,7 +37,7 @@ class DataManager {
     
     initializeDataArrays() {
         // Initialize with 192 data points (2 days) of zeros
-        const maxDataPoints = 192;
+        const maxDataPoints = PARAMETERS.ticksPerDay * 2;
         
         for (let i = 0; i < maxDataPoints; i++) {
             this.actionData.move.push(0);
@@ -110,12 +110,12 @@ class DataManager {
         }
         
         // Shift out old data (remove first element) and add new data
-        for (const key in this.actionData) {
-            this.actionData[key].shift();
-        }
-        for (const key in this.phaseData) {
-            this.phaseData[key].shift();
-        }
+        // for (const key in this.actionData) {
+        //     this.actionData[key].shift();
+        // }
+        // for (const key in this.phaseData) {
+        //     this.phaseData[key].shift();
+        // }
 
         // Add new data points
         this.actionData.move.push(moveCount);
