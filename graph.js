@@ -71,7 +71,7 @@ class Graph {
         this.ctx.textAlign = "right";
         this.ctx.fillText((this.data[0].length - 1)* PARAMETERS.reportingPeriod, this.x + this.xSize - 5, this.y + this.ySize + 10);
         this.ctx.textAlign = "center";
-        this.ctx.fillText(this.label, this.x + this.xSize / 2, this.y + this.ySize + 10);
+        this.ctx.fillText(this.label, this.x + this.xSize / 2, this.y + this.ySize + 12);
 
         this.ctx.strokeStyle = "#000000";
         this.ctx.lineWidth = 1;

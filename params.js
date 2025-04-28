@@ -17,18 +17,20 @@ var PARAMETERS = {
     initialFoodAmount: 3,
     
     // Fish Population Settings
-    initialFishCount: 100,
+    initialFishCount: 10,
     eggHatchingTime: 96, // Ticks until an egg hatches (1/4 day)
+    eggDeathChance: 0.01,
+    eggsPerFood: 1,
     
     // Fish Parameter Distributions
     fishMinFoodNeededMean: 5,
     fishMinFoodNeededStdDev: 0,
-    fishMaxEggsPerDayMean: 10,
-    fishMaxEggsPerDayStdDev: 0,
-    fishFeedingThresholdMean: 0.1, // Probability to stop feeding and go dormant when min food is met
+    fishMaxEggsPerDayMean: 3,
+    fishMaxEggsPerDayStdDev: 3,
+    fishFeedingThresholdMean: 0.02, // Probability to stop feeding and go dormant when min food is met
     fishFeedingThresholdStdDev: 0,
     feedSelectionDifference: 1,
-    
+
     // Reporting
     reportingPeriod: 96,
     

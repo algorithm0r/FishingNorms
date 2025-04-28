@@ -13,9 +13,12 @@ class Egg {
     
     update() {
         // Check if it's time to hatch
-        if (this.automata.currentTick == this.hatchTime) {
+        if (this.automata.currentTick === this.hatchTime) {
             this.hatch();
-            
+            this.hatched = true;
+        }
+
+        if(this.hatched || Math.random < PARAMETERS.eggDeathChance)  {
             // Remove from cell
             const cell = this.automata.grid[this.row][this.col];
             const index = cell.eggs.indexOf(this);
@@ -25,6 +28,7 @@ class Egg {
             
             return true; // Return true to indicate the egg should be removed
         }
+        
         return false;
     }
     

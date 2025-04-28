@@ -50,7 +50,7 @@ class Fish {
         if (this.automata.currentTick === 0) {
             // Calculate excess food after meeting minimum needs
             const excessFood = Math.max(0, this.foodConsumed - this.minFoodNeeded);
-            this.eggsToLay = Math.min(Math.floor(excessFood), this.maxEggsPerDay);
+            this.eggsToLay = Math.min(Math.floor(excessFood)*PARAMETERS.eggsPerFood, this.maxEggsPerDay);
             this.eggsLaid = 0;
             this.foodConsumed = 0; // Reset for the new day
             this.age++;
@@ -76,7 +76,7 @@ class Fish {
     
     updateFeeding() {
         // Check if we should move to dormant phase
-        if (this.foodConsumed >= this.minFoodNeeded && Math.random() < this.feedingThreshold) {
+        if (this.foodConsumed >= this.minFoodNeeded + this.maxEggsPerDay) {
             this.phase = "dormant";
             this.plannedAction = "rest";
             return;

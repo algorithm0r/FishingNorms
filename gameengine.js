@@ -87,15 +87,17 @@ class GameEngine {
         this.graphs.push(graph);
     }
     draw() {
-        if (this.automata.currentTick % PARAMETERS.reportingPeriod === 0) {
-            this.ctx.clearRect(this.ctx.canvas.height, 0, this.ctx.canvas.height, this.ctx.canvas.height); // clear graphs only
-            for (var i = 0; i < this.graphs.length; i++) {
-                this.graphs[i].draw(this.ctx);
-            }
-        }
-        this.ctx.clearRect(0, 0, this.ctx.canvas.height, this.ctx.canvas.height); // clear sim square only
+        // Clear the entire canvas
+        this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
+        
+        // Draw all entities
         for (var i = 0; i < this.entities.length; i++) {
             this.entities[i].draw(this.ctx);
+        }
+        
+        // Draw all graphs
+        for (var i = 0; i < this.graphs.length; i++) {
+            this.graphs[i].draw(this.ctx);
         }
     }
     update() {
