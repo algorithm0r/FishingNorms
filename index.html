@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Fishing Norms</title>
+    <title>Population Genetics Simulator</title>
     <link rel="stylesheet" type="text/css" href="./style.css">
     </link>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.1/socket.io.js"></script>
@@ -13,32 +13,70 @@
     <script type="text/javascript" src="./gameengine.js"></script>
     <script type="text/javascript" src="./util.js"></script>
     <script type="text/javascript" src="./params.js"></script>
-    <script type="text/javascript" src="./automata.js"></script>
     <script type="text/javascript" src="./fish.js"></script>
+    <script type="text/javascript" src="./human.js"></script>
     <script type="text/javascript" src="./egg.js"></script>
+    <script type="text/javascript" src="./automata.js"></script>
     <script type="text/javascript" src="./datamanager.js"></script>
     <script type="text/javascript" src="./main.js"></script>
 </head>
 
 <body>
-    <canvas id="gameWorld" width="1600" height="800"></canvas>
+    <canvas id="gameWorld" width="1200" height="800"></canvas>
     <div id="controlPanel">
         <div id="db" class="db-status">Database</div>
         <div id="parameters">
 
             <div class="parameter-section">
                 <h3>Environmental Parameters</h3>
-
+                <div class="parameter-control">
+                    <label for="numRows">Number of Rows:</label>
+                    <input type="number" id="numRows" min="10" max="100" value="16">
+                </div>
+                <div class="parameter-control">
+                    <label for="numCols">Number of Columns:</label>
+                    <input type="number" id="numCols" min="10" max="100" value="16">
+                </div>
+                <div class="parameter-control">
+                    <label for="borderWidth">Border Width:</label>
+                    <input type="number" id="borderWidth" min="0" max="10" value="3">
+                </div>
             </div>
 
             <div class="parameter-section">
-                <h3>Population Parameters</h3>
-
+                <h3>Food Parameters</h3>
+                <div class="parameter-control">
+                    <label for="foodGrowthRate">Food Growth Rate:</label>
+                    <input type="number" id="foodGrowthRate" min="0" max="1" step="0.01" value="0.2">
+                </div>
+                <div class="parameter-control">
+                    <label for="maxFoodPerCell">Max Food Per Cell:</label>
+                    <input type="number" id="maxFoodPerCell" min="1" max="100" value="10">
+                </div>
+                <div class="parameter-control">
+                    <label for="initialFoodAmount">Initial Food Amount:</label>
+                    <input type="number" id="initialFoodAmount" min="0" max="100" value="3">
+                </div>
             </div>
 
             <div class="parameter-section">
-                <h3>Organism Parameters</h3>
-
+                <h3>Fish Parameters</h3>
+                <div class="parameter-control">
+                    <label for="eggDeathChance">Egg Death Chance (per tick):</label>
+                    <input type="number" id="eggDeathChance" min="0" max="1" step="0.01" value="0.01">
+                </div>
+                <div class="parameter-control">
+                    <label for="minFoodNeeded">Min Food Needed (Mean):</label>
+                    <input type="number" id="minFoodNeeded" min="0" max="10" step="0.5" value="10">
+                </div>
+                <div class="parameter-control">
+                    <label for="maxEggsPerDay">Max Eggs Per Day (Mean):</label>
+                    <input type="number" id="maxEggsPerDay" min="0" max="20" value="10">
+                </div>
+                <div class="parameter-control">
+                    <label for="fishDeathChance">Fish Death Chance (per day):</label>
+                    <input type="number" id="fishDeathChance" min="0" max="1" step="0.01" value="0.5">
+                </div>
             </div>
 
             <button type="button" onclick="reset()">Reset Simulation</button>

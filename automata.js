@@ -76,8 +76,8 @@ class Automata {
 
                 // Create fish with parameters sampled from normal distributions
                 const parameters = {
-                    minFoodNeeded: generateNormalSample(PARAMETERS.fishMinFoodNeededMean, PARAMETERS.fishMinFoodNeededStdDev),
-                    maxEggsPerDay: Math.round(generateNormalSample(PARAMETERS.fishMaxEggsPerDayMean, PARAMETERS.fishMaxEggsPerDayStdDev)),
+                    minFoodNeeded: generateNormalSample(PARAMETERS.minFoodNeeded, PARAMETERS.fishMinFoodNeededStdDev),
+                    maxEggsPerDay: Math.round(generateNormalSample(PARAMETERS.maxEggsPerDay, PARAMETERS.fishMaxEggsPerDayStdDev)),
                     feedingThreshold: generateNormalSample(PARAMETERS.fishFeedingThresholdMean, PARAMETERS.fishFeedingThresholdStdDev),
                 };
 
